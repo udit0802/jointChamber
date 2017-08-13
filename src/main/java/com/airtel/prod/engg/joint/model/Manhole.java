@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Manhole {
 
-	private long manholeId;
+	private String manholeId;
 	
 	private int noOfJoints;
 	
@@ -12,11 +12,11 @@ public class Manhole {
 	
 	private List<Joint> joints;
 
-	public long getManholeId() {
+	public String getManholeId() {
 		return manholeId;
 	}
 
-	public void setManholeId(long manholeId) {
+	public void setManholeId(String manholeId) {
 		this.manholeId = manholeId;
 	}
 

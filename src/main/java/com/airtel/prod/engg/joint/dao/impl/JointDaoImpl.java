@@ -28,7 +28,7 @@ public class JointDaoImpl implements JointDao {
 	 */
 	@Override
 	public String saveInfo(Manhole manhole,String olmId) throws Exception{
-		long manholeId = manhole.getManholeId();
+		String manholeId = manhole.getManholeId();
 		Map<String,Map<String,Integer>> ductCableMap = new HashMap<String, Map<String,Integer>>();;
 		for(ManholeDuctInfo manholeDuctInfo : manhole.getManholeDuctInfo()){
 			String direction = manholeDuctInfo.getDirection();
@@ -95,7 +95,7 @@ public class JointDaoImpl implements JointDao {
 				Integer anotherEndloopDistance = null;
 				String anotherEndductPrimaryKey = null;
 				for(Map.Entry<String, Map<String,Integer>> entry : ductCableMap.entrySet()){
-					anotherEndloopDistance = entry.getValue().get(cableId);
+					anotherEndloopDistance = entry.getValue().get(anotherEndcableId);
 					if(anotherEndloopDistance != null){
 						anotherEndductPrimaryKey = entry.getKey();
 						break;
@@ -112,4 +112,8 @@ public class JointDaoImpl implements JointDao {
 		}
 		return JointConstants.SUCCESS;
 	}
+	
+//	private String fetchCableInfo(Joint joint){
+//		
+//	}
 }
