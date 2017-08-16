@@ -124,9 +124,9 @@ public class JointDaoImpl implements JointDao {
 			tubeId = connection.getEnd1().getTubeId();
 			color = connection.getEnd1().getColor();
 		}else if(endNumber ==2){
-			cableId = connection.getEnd1().getCableId();
-			tubeId = connection.getEnd1().getTubeId();
-			color = connection.getEnd1().getColor();
+			cableId = connection.getEnd2().getCableId();
+			tubeId = connection.getEnd2().getTubeId();
+			color = connection.getEnd2().getColor();
 		}
 		String direction = null;
 		int type = 0;
