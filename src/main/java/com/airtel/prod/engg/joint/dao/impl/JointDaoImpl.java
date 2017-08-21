@@ -43,71 +43,10 @@ public class JointDaoImpl implements JointDao {
 		}
 		for(Joint joint : manhole.getJoints()){
 			String jointId = manholeId + "_J" + joint.getJointOrder();
-			jdbcTemplate.update(Query.JOINT_TABLE_INSERT_QUERY, new Object[]{jointId,joint.getNoOfCables()});
+			jdbcTemplate.update(Query.JOINT_TABLE_INSERT_QUERY, new Object[]{jointId,joint.getNoOfCables(),manholeId});
 			for(Connection connection : joint.getConnections()){
 				String cablePrimaryKey1 = fetchCableInfo(joint,connection,ductCableMap,1);
 				String cablePrimaryKey2 = fetchCableInfo(joint,connection,ductCableMap,2);
-//				String cableId = connection.getEnd1().getCableId();
-//				String tubeId = connection.getEnd1().getTubeId();
-//				String color = connection.getEnd1().getColor();
-//				String direction = null;
-//				int type = 0;
-//				int cableOrder = 0;
-//				
-//				for(Cable cable : joint.getCableInfo()){
-//					if(cable.getCableId().equalsIgnoreCase(cableId)){
-//						direction = cable.getCableDirection();
-//						type = cable.getCableType();
-//						cableOrder = cable.getCableOrder();
-//						break;
-//					}
-//				}
-//				Integer loopDistance = null;
-//				String ductPrimaryKey = null;
-//				for(Map.Entry<String, Map<String,Integer>> entry : ductCableMap.entrySet()){
-//					loopDistance = entry.getValue().get(cableId);
-//					if(loopDistance != null){
-//						ductPrimaryKey = entry.getKey();
-//						break;
-//					}
-//				}
-//				String cablePrimaryKey1 = null;
-//				if(loopDistance != null){
-//					cablePrimaryKey1 = ductPrimaryKey + "_" + cableId + "_" + tubeId + "_" + color;
-//					jdbcTemplate.update(Query.CABLE_TABLE_INSERT_QUERY, new Object[]{cablePrimaryKey1,ductPrimaryKey,cableId,direction,type,tubeId,color,cableOrder});
-//				}
-				
-				
-
-//				String anotherEndcableId = connection.getEnd2().getCableId();
-//				String anotherEndtubeId = connection.getEnd2().getTubeId();
-//				String anotherEndcolor = connection.getEnd2().getColor();
-//				String anotherEnddirection = null;
-//				int anotherEndtype = 0;
-//				int anotherEndcableOrder = 0;
-//				
-//				for(Cable cable : joint.getCableInfo()){
-//					if(cable.getCableId().equalsIgnoreCase(anotherEndcableId)){
-//						anotherEnddirection = cable.getCableDirection();
-//						anotherEndtype = cable.getCableType();
-//						anotherEndcableOrder = cable.getCableOrder();
-//						break;
-//					}
-//				}
-//				Integer anotherEndloopDistance = null;
-//				String anotherEndductPrimaryKey = null;
-//				for(Map.Entry<String, Map<String,Integer>> entry : ductCableMap.entrySet()){
-//					anotherEndloopDistance = entry.getValue().get(anotherEndcableId);
-//					if(anotherEndloopDistance != null){
-//						anotherEndductPrimaryKey = entry.getKey();
-//						break;
-//					}
-//				}
-//				String cablePrimaryKey2 = null;
-//				if(anotherEndloopDistance != null){
-//					cablePrimaryKey2 = anotherEndductPrimaryKey + "_" + anotherEndcableId + "_" + anotherEndtubeId + "_" +anotherEndcolor;
-//					jdbcTemplate.update(Query.CABLE_TABLE_INSERT_QUERY, new Object[]{cablePrimaryKey2,anotherEndductPrimaryKey,anotherEndcableId,anotherEnddirection,anotherEndtype,anotherEndtubeId,anotherEndcolor,anotherEndcableOrder});
-//				}
 				jdbcTemplate.update(Query.CONNECTION_TABLE_INSERT_QUERY, new Object[]{cablePrimaryKey1,cablePrimaryKey2,jointId});
 			
 			}
