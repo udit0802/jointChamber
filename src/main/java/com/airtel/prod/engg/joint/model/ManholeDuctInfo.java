@@ -4,6 +4,8 @@ import java.util.List;
 
 
 public class ManholeDuctInfo {
+	
+	private String id;
 
 	private String direction;
 	
@@ -11,7 +13,13 @@ public class ManholeDuctInfo {
 	
 	private List<Duct> ducts;
 
-	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getDirection() {
 		return direction;
@@ -39,7 +47,8 @@ public class ManholeDuctInfo {
 
 	@Override
 	public String toString() {
-		return "ManholeDuctInfo [direction=" + direction + ", noOfDucts=" + noOfDucts + ", ducts=" + ducts + "]";
+		return "ManholeDuctInfo [id=" + id + ", direction=" + direction + ", noOfDucts=" + noOfDucts + ", ducts="
+				+ ducts + "]";
 	}
 
 }

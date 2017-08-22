@@ -4,6 +4,8 @@ import java.util.Map;
 
 public class Duct {
 	
+	private String id;
+	
 	private String ductId;
 
 	private String color;
@@ -11,6 +13,14 @@ public class Duct {
 	private int noOfCables;
 	
 	private Map<String,Integer> cableLoopMap;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getDuctId() {
 		return ductId;
@@ -46,7 +56,7 @@ public class Duct {
 
 	@Override
 	public String toString() {
-		return "Duct [ductId=" + ductId + ", color=" + color + ", noOfCables=" + noOfCables + ", cableLoopMap="
-				+ cableLoopMap + "]";
+		return "Duct [id=" + id + ", ductId=" + ductId + ", color=" + color + ", noOfCables=" + noOfCables
+				+ ", cableLoopMap=" + cableLoopMap + "]";
 	}
 }

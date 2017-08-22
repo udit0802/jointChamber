@@ -21,14 +21,27 @@ public class JointController {
 	private JointService jointService;
 
 	@RequestMapping(value = "/save/manhole", method = RequestMethod.POST,consumes = "application/json")
-	public ResponseWrapper<String> saveInfo(@RequestBody Manhole manhole, @RequestParam String olmId){
+	public ResponseWrapper<String> saveInfo(@RequestBody Manhole manhole){
 		ResponseWrapper<String> wrapper = null;
 		try{
 		Response<String> response = new Response<String>();
-		response.setResponse(jointService.saveInfo(manhole, olmId));
+		response.setResponse(jointService.saveInfo(manhole));
 		wrapper = new ResponseWrapper<String>(JointConstants.SUCCESS, 200, response, null);
 		}catch(Exception e){
 			wrapper = new ResponseWrapper<String>(JointConstants.FAILURE, 500, null, e.getMessage());
+		}
+			return wrapper;
+	}
+	
+	@RequestMapping(value = "/get/manhole", method = RequestMethod.GET,produces = "application/json")
+	public ResponseWrapper<Manhole> saveInfo(@RequestParam String manholeNumber){
+		ResponseWrapper<Manhole> wrapper = null;
+		try{
+		Response<Manhole> response = new Response<Manhole>();
+		response.setResponse(jointService.getManholeInfo(manholeNumber));
+		wrapper = new ResponseWrapper<Manhole>(JointConstants.SUCCESS, 200, response, null);
+		}catch(Exception e){
+			wrapper = new ResponseWrapper<Manhole>(JointConstants.FAILURE, 500, null, e.getMessage());
 		}
 			return wrapper;
 	}

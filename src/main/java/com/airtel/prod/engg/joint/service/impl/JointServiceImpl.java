@@ -17,7 +17,12 @@ public class JointServiceImpl implements JointService {
 	 * @see com.airtel.prod.engg.joint.service.impl.JointService#saveInfo(com.airtel.prod.engg.joint.model.Manhole, java.lang.String)
 	 */
 	@Override
-	public String saveInfo(Manhole manhole,String olmId) throws Exception{
-		return jointDao.saveInfo(manhole, olmId);
+	public String saveInfo(Manhole manhole) throws Exception{
+		return jointDao.saveInfo(manhole);
+	}
+	
+	@Override
+	public Manhole getManholeInfo(String manholeNumber) throws Exception{
+		return jointDao.getManholeInfo(manholeNumber);
 	}
 }

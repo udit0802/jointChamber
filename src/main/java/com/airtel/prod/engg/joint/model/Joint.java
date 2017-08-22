@@ -3,14 +3,24 @@ package com.airtel.prod.engg.joint.model;
 import java.util.List;
 
 public class Joint {
+	
+	private String jointId;
 
 	private int noOfCables;
 	
-	private String jointOrder;
+	private long jointOrder;
 	
 	private List<Cable> cableInfo;
 	
 	private List<Connection> connections;
+
+	public String getJointId() {
+		return jointId;
+	}
+
+	public void setJointId(String jointId) {
+		this.jointId = jointId;
+	}
 
 	public int getNoOfCables() {
 		return noOfCables;
@@ -20,11 +30,11 @@ public class Joint {
 		this.noOfCables = noOfCables;
 	}
 
-	public String getJointOrder() {
+	public long getJointOrder() {
 		return jointOrder;
 	}
 
-	public void setJointOrder(String jointOrder) {
+	public void setJointOrder(long jointOrder) {
 		this.jointOrder = jointOrder;
 	}
 
@@ -46,8 +56,8 @@ public class Joint {
 
 	@Override
 	public String toString() {
-		return "Joint [noOfCables=" + noOfCables + ", jointOrder=" + jointOrder + ", cableInfo=" + cableInfo
-				+ ", connections=" + connections + "]";
+		return "Joint [jointId=" + jointId + ", noOfCables=" + noOfCables + ", jointOrder=" + jointOrder
+				+ ", cableInfo=" + cableInfo + ", connections=" + connections + "]";
 	}
 	
 }
